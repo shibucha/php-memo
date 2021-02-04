@@ -16,14 +16,11 @@
                 PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC
             ]
-        );
-
-        echo "接続しました。"; 
+        );       
      } catch (Exception $e) {
         echo "データベースの接続に失敗しました。";
         echo $e->getMessage();
         exit;
      }
-
      return $dbh;
  }
