@@ -8,7 +8,6 @@ require_once __DIR__ . '/../../common/validation.php';
 $user_email = $_POST['user_email'];
 $user_password = $_POST['user_password'];
 
-
 // 空チェック
 emptyCheck($user_email, 'メールアドレスを入力してください。');
 emptyCheck($user_password, 'パスワードを入力してください。');
@@ -32,20 +31,20 @@ try {
     $dbh = getDatabaseConnection();
     $sql = "select id,name,password from users where email = :user_email";
     $prepare = $dbh->prepare($sql);
-
+    
     $prepare->bindValue(':user_email', $user_email);
     $prepare->execute();
     $user = $prepare->fetch(PDO::FETCH_ASSOC);
     
-    if (!$user) {
-        $_SESSION['errors'] = array_push($_SESSION['errors'], 'メールアドレスまたはパスワードが間違っています。');
+    if (!$user) {        
+        $_SESSION['errors'] = 'メールアドレスまたはパスワードが間違っています。';       
         header('Location: __DIR__ . /../../../login/index.php');
         exit;
     }
-
+    
     $name = $user['name'];
     $id  = $user['id'];
-
+    
     if (password_verify($user_password, $user['password'])) {
         $_SESSION['user'] = [
             'name' => $name,

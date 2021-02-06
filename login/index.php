@@ -14,9 +14,9 @@ echo getHeader("ログイン");
     <div class="d-flex align-items-center justify-content-center h-100">
         <form method="post" action="./action/login.php">
             <div class="card rounded login-card-width shadow">
-                <div class="card-body">                
-                    <?php                    
-                    if (isset($_SESSION['errors'])) { 
+                <div class="card-body">
+                    <?php
+                    if (isset($_SESSION['errors'])) {
                         getErrors($_SESSION['errors']);
                     }
                     unset($_SESSION['errors']);

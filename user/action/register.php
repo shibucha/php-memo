@@ -53,6 +53,6 @@ try {
     exit;
 }
 
-header('Location: __DIR__ . /../../memo');
+header('Location: __DIR__ . /../../../memo');
 exit;
 
