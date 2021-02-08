@@ -1,6 +1,12 @@
 <?php
 session_start();
+
+require_once __DIR__ . '/../common/auth.php';
 require_once __DIR__ . '/../common/errors.php';
+require_once __DIR__ . '/../common/function.php';
+
+loginCheck();
+
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,14 @@
+<?php
+
+require_once __DIR__ . '/../common/auth.php';
+
+if(!isLogin()){
+    header('Location: ../login/');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">    
     <?php
